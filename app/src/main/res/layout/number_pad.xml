@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Remember to add style="@style/PadLayoutStyle" to the CalculatorPadLayout and remove layout width and height-->
+
+<com.moyheen.user.solvex.CalculatorPadLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/pad_advanced_background_color"
+    android:columnCount="3"
+    android:rowCount="4"
+
+    >
+
+    <!--<Button-->
+    <!--android:id="@+id/button1"-->
+    <!--style="@style/PadButtonStyle"-->
+    <!--android:text="@string/one" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/button2"-->
+    <!--style="@style/PadButtonStyle"-->
+    <!--android:text="@string/two" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/button3"-->
+    <!--style="@style/PadButtonStyle"-->
+    <!--android:text="@string/three" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/button4"-->
+    <!--style="@style/PadButtonStyle"-->
+    <!--android:text="@string/four" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/button5"-->
+    <!--style="@style/PadButtonStyle"-->
+    <!--android:text="@string/five" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/button6"-->
+    <!--style="@style/PadButtonStyle"-->
+    <!--android:text="@string/six" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/button7"-->
+    <!--style="@style/PadButtonStyle"-->
+    <!--android:text="@string/seven" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/button8"-->
+    <!--style="@style/PadButtonStyle"-->
+    <!--android:text="@string/eight" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/button9"-->
+    <!--style="@style/PadButtonStyle"-->
+    <!--android:text="@string/nine" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/button10"-->
+    <!--style="@style/PadButtonStyle"-->
+    <!--android:text="@string/ten" />-->
+
+</com.moyheen.user.solvex.CalculatorPadLayout>

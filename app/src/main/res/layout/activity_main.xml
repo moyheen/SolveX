@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/apk/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/custom_tool_bar" />
+
+    <android.support.v4.widget.DrawerLayout xmlns:anddroid="http://schemas.android.com/apk/res/android"
+        anddroid:id="@+id/drawer_layout"
+        anddroid:layout_width="match_parent"
+        anddroid:layout_height="match_parent">
+
+        <FrameLayout
+            anddroid:id="@+id/content_frame"
+            anddroid:layout_width="match_parent"
+            anddroid:layout_height="match_parent" />
+
+
+        <ListView
+            anddroid:id="@+id/left_drawer"
+            anddroid:layout_width="240dp"
+            anddroid:layout_height="match_parent"
+            anddroid:layout_gravity="start"
+            anddroid:background="#ffffff"
+            anddroid:choiceMode="singleChoice"
+            anddroid:divider="#eee"
+            anddroid:dividerHeight="1dp" />
+
+
+    </android.support.v4.widget.DrawerLayout>
+
+</LinearLayout>
