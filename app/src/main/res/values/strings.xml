@@ -3,29 +3,40 @@
 
     <string name="app_name">Solve X!</string>
     <string name="action_settings">Settings</string>
-    <string name="take_a_tour">Take a tour</string>
+    <string name="take_a_tour">Yes, please</string>
     <string name="or">or</string>
-    <string name="sign_in">Sign in with Google</string>
     <string name="description">image</string>
+    <string name="score_image_description">score_image</string>
+    <string name="timer_image_description">timer_image</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_main_activity_list">MainActivityList</string>
-    <string name="start_game">Start</string>
-    <string name="score">Score</string>
-    <string name="time">Timer</string>
+    <string name="start_game">Accept mission</string>
     <string name="initial_score">0</string>
-    <string name="timer">30</string>
+    <string name="timer">00:30</string>
     <string name="x">X</string>
     <string name="general">General</string>
-    <string name="personal_best">Personal Best</string>
+    <string name="personal_best">High Score</string>
+    <string name="signout">Sign out</string>
+    <string name="score">score</string>
 
-    <string name="dialog_title">Take a tour?</string>
-    <string name="dialog_message">So you want to take a tour? This means that your score
-        will not be recorded and will not show up on the leaderboard.</string>
+    <string name="help">Your mission, should you choose to accept it, is to <b>SolveX!</b> \n
+        You will be provided with a number, X and your task is to calculate X using either -, +, * or /. \n\n
 
+        Calculate X by pressing the set of buttons on the screen three times.\n
+        Press a number on the left once, an operator on the right once, and finally a number on the left once.\n
+        For example, if X is 8, you can press 2 once, followed by * once, followed by 4 once. \n
+        Or, if X is 8, you can press 5 once, followed by + once, followed by 3 once.\n
+        Bear in mind that subtraction earns more marks than addition, multiplication and division. \n\n
+
+        Your score would be updated and X will be changed. Do this as fast as you can for 30 seconds. \n\n
+
+        Good luck.</string>
+
+    <!-- The DrawerLayout Strings -->
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
 
-    <!-- The Keypad Buttons-->
+    <!-- The Keypad Buttons -->
     <string name="one">1</string>
     <string name="two">2</string>
     <string name="three">3</string>
@@ -41,4 +52,20 @@
     <string name="thirteen">*</string>
     <string name="fourteen">/</string>
 
+    <!-- The Leaderboard strings -->
+    <string name="high_score">High Score</string>
+    <string name="new_high_score">New high score!</string>
+    <string name="old_score">Old Score</string>
+    <string name="default_score"><b>0</b></string>
+
+    <!-- The DisplayScore items -->
+    <string name="score_display_text">You scored </string>
+    <string name="score_display"><b>30</b></string>
+    <string name="play_again">Play Again</string>
+    <string name="view_leaderboard">Go to Leaderboard</string>
+    <string name="share_button">Share on Google+</string>
+
+    <!-- The App IDs -->
+    <string name="app_id">174559663090</string>
+    <string name="LEADERBOARD_ID">CgkI8qfEpIoFEAIQAQ</string>
 </resources>

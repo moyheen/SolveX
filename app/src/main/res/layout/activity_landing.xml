@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_landing"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
     android:orientation="vertical"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp">
+    android:padding="@dimen/margin_medium">
+
 
     <TextView
         android:layout_width="match_parent"
@@ -31,34 +31,46 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:contentDescription="@string/description"
-            android:padding="16dp"
-            android:src="@drawable/landing_bg" />
+            android:src="@drawable/bg" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center|bottom"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <Button
+        <!--<com.andexert.library.RippleView-->
+            <!--android:id="@+id/more"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:rv_color="@color/pad_button_text_color"-->
+            <!--app:rv_framerate="40"-->
+            <!--app:rv_rippleDuration="400"-->
+            <!--app:rv_type="simpleRipple"-->
+            <!--ripple:rv_centered="false"-->
+            <!--android:layout_weight="1">-->
+
+            <!--<Button-->
+                <!--android:id="@+id/tour_button"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginRight="5dp"-->
+                <!--android:background="@drawable/mybutton"-->
+                <!--android:text="@string/take_a_tour"-->
+                <!--android:textColor="#FBF077"/>-->
+
+        <!--</com.andexert.library.RippleView>-->
+
+        <com.google.android.gms.common.SignInButton
             android:id="@+id/landing_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/sign_in" />
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/or"
-            android:textSize="16sp" />
-
-        <Button
-            android:id="@+id/tour_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/take_a_tour" />
 
     </LinearLayout>
+
 
 </LinearLayout>

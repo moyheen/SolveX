@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'solvex'
             keyPassword '1.1solvex1.1'
-            storeFile file('C:/Users/user/keystore/solvex.jks')
+            storeFile file('C:/Users/moyheen/keystore/solvex.jks')
             storePassword '1.1solvex1.1'
         }
         debug {
@@ -19,14 +19,14 @@ android {
     buildToolsVersion "21.1.2"
     defaultConfig {
         applicationId 'com.moyheen.user.solvex'
-        minSdkVersion 14
+        minSdkVersion 10
         targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
     buildTypes {
         release {
-            runProguard false
+            minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
         }
@@ -41,9 +41,9 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.+'
-    compile 'com.android.support:gridlayout-v7:21.0.+'
     compile 'com.android.support:support-v4:21.0.+'
-    compile 'com.google.android.gms:play-services-plus:6.5.+'
-    compile 'com.google.android.gms:play-services-identity:6.5.+'
+    compile 'com.google.android.gms:play-services:6.5.+'
+    compile 'de.hdodenhof:circleimageview:1.2.1'
+    compile 'com.github.traex.rippleeffect:library:1.2.3'
 }
 

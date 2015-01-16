@@ -11,12 +11,13 @@ public class Utility {
     private char sign;
     private int score;
     private int randomNumber;
+    private int rightAnswer;
 
     public Utility() {
     }
 
     public void setFirstNum(int num) {
-        this.first_num = num+1;
+        this.first_num = num + 1;
     }
 
     public int getFirstNum() {
@@ -24,11 +25,19 @@ public class Utility {
     }
 
     public void setSecondNum(int num) {
-        this.second_num = num+1;
+        this.second_num = num + 1;
     }
 
     public int getSecondNum() {
         return second_num;
+    }
+
+    public void setRightAnswer(int ans){
+        this.rightAnswer = ans;
+    }
+
+    public int getRightAnswer() {
+        return rightAnswer;
     }
 
     public void setSign(int num) {
@@ -77,6 +86,9 @@ public class Utility {
                 result = first_num - second_num;
                 if (result == randomNumber) {
                     score += 5;
+                    setRightAnswer(5);
+                } else {
+                    setRightAnswer(0);
                 }
                 setScore(score);
                 break;
@@ -85,6 +97,9 @@ public class Utility {
                 result = first_num + second_num;
                 if (result == randomNumber) {
                     score += 4;
+                    setRightAnswer(4);
+                } else {
+                    setRightAnswer(0);
                 }
                 setScore(score);
                 break;
@@ -93,6 +108,9 @@ public class Utility {
                 result = first_num * second_num;
                 if (result == randomNumber) {
                     score += 3;
+                    setRightAnswer(3);
+                } else {
+                    setRightAnswer(0);
                 }
                 setScore(score);
                 break;
@@ -101,6 +119,9 @@ public class Utility {
                 result = first_num / second_num;
                 if (result == randomNumber) {
                     score += 2;
+                    setRightAnswer(2);
+                } else {
+                    setRightAnswer(0);
                 }
                 setScore(score);
                 break;

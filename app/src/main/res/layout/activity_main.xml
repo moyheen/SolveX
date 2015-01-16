@@ -18,16 +18,28 @@
             anddroid:layout_width="match_parent"
             anddroid:layout_height="match_parent" />
 
-
-        <ListView
-            anddroid:id="@+id/left_drawer"
+        <RelativeLayout
+            anddroid:id="@+id/left_drawer_relative"
             anddroid:layout_width="240dp"
             anddroid:layout_height="match_parent"
             anddroid:layout_gravity="start"
-            anddroid:background="#ffffff"
-            anddroid:choiceMode="singleChoice"
-            anddroid:divider="#eee"
-            anddroid:dividerHeight="1dp" />
+            anddroid:background="#ffffff">
+
+            <ImageView
+                anddroid:id="@+id/navigation_image"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                anddroid:background="@drawable/bg" />
+
+            <ListView
+                anddroid:id="@+id/left_drawer_list"
+                anddroid:layout_width="match_parent"
+                anddroid:layout_height="match_parent"
+                anddroid:layout_below="@id/navigation_image"
+                anddroid:choiceMode="singleChoice"
+                anddroid:divider="#eee"
+                anddroid:dividerHeight="1dp" />
+        </RelativeLayout>
 
 
     </android.support.v4.widget.DrawerLayout>

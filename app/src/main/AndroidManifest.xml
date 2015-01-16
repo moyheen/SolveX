@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.moyheen.user.solvex">
-
 
     <application
         android:allowBackup="true"
@@ -12,6 +12,10 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.gms.games.APP_ID"
+            android:value="@string/app_id" />
 
         <activity
             android:name="com.moyheen.user.solvex.activities.LandingActivity"
@@ -25,11 +29,13 @@
         <activity
             android:name="com.moyheen.user.solvex.activities.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+            android:theme="@style/ToolBarColos"></activity>
+        <provider
+            android:authorities="com.moyheen.user.solvex"
+            android:name=".data.DetailsProvider" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
 </manifest>
