@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_play"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:id="@+id/start_button_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:text="@string/help"
+            android:textColor="@color/background_floating_material_dark"
+            android:textSize="16sp" />
+
+        <com.andexert.library.RippleView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:rv_color="@color/pad_button_text_color"
+            app:rv_framerate="40"
+            app:rv_rippleDuration="400"
+            app:rv_type="simpleRipple"
+            ripple:rv_centered="false">
+
+            <Button
+                android:id="@+id/start_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:background="@drawable/mybutton"
+                android:text="@string/start_game"
+                android:textColor="@color/calculator_accent_color" />
+
+        </com.andexert.library.RippleView>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/play_game_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/margin_medium">
+
+                <ImageView
+                    android:id="@+id/score_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:contentDescription="@string/score_image_description"
+                    android:src="@drawable/score" />
+
+                <TextView
+                    android:id="@+id/score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_toRightOf="@id/score_image"
+                    android:text="@string/initial_score"
+                    android:textColor="#DD4814"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/timer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:text="@string/timer"
+                    android:textColor="#DD4814"
+                    android:textSize="24sp" />
+
+                <ImageView
+                    android:id="@+id/timer_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_toLeftOf="@id/timer"
+                    android:contentDescription="@string/timer_image_description"
+                    android:src="@drawable/timer" />
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/X"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/x"
+                android:textColor="@color/primaryColor"
+                android:textSize="100sp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center|bottom"
+            android:orientation="vertical">
+
+            <!-- First row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+                    <Button
+                        android:id="@+id/button1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/numeric_pad"
+                        android:padding="24dp"
+                        android:text="@string/one"
+                        android:textColor="#fbf077" />
+
+                </com.andexert.library.RippleView>
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/numeric_pad"
+                        android:padding="24dp"
+                        android:text="@string/two"
+                        android:textColor="#fbf077" />
+                </com.andexert.library.RippleView>
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/numeric_pad"
+                        android:padding="24dp"
+                        android:text="@string/three"
+                        android:textColor="#fbf077" />
+                </com.andexert.library.RippleView>
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+                    <Button
+                        android:id="@+id/button11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/operator_pad"
+                        android:padding="24dp"
+                        android:text="@string/eleven"
+                        android:textColor="#fbf077" />
+                </com.andexert.library.RippleView>
+
+
+            </LinearLayout>
+
+            <!-- Second row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+                    <Button
+                        android:id="@+id/button4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/numeric_pad"
+                        android:padding="24dp"
+                        android:text="@string/four"
+                        android:textColor="#fbf077" />
+                </com.andexert.library.RippleView>
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/numeric_pad"
+                        android:padding="24dp"
+                        android:text="@string/five"
+                        android:textColor="#fbf077" />
+                </com.andexert.library.RippleView>
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+                    <Button
+                        android:id="@+id/button6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/numeric_pad"
+                        android:padding="24dp"
+                        android:text="@string/six"
+                        android:textColor="#fbf077" />
+                </com.andexert.library.RippleView>
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+                    <Button
+                        android:id="@+id/button12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/operator_pad"
+                        android:padding="24dp"
+                        android:text="@string/twelve"
+                        android:textColor="#fbf077" />
+                </com.andexert.library.RippleView>
+
+            </LinearLayout>
+
+            <!-- Third row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+
+                    <Button
+                        android:id="@+id/button7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/numeric_pad"
+                        android:padding="24dp"
+                        android:text="@string/seven"
+                        android:textColor="#fbf077" />
+                </com.andexert.library.RippleView>
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+                    <Button
+                        android:id="@+id/button8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/numeric_pad"
+                        android:padding="24dp"
+                        android:text="@string/eight"
+                        android:textColor="#fbf077" />
+                </com.andexert.library.RippleView>
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+                    <Button
+                        android:id="@+id/button9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/numeric_pad"
+                        android:padding="24dp"
+                        android:text="@string/nine"
+                        android:textColor="#fbf077" />
+                </com.andexert.library.RippleView>
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+                    <Button
+                        android:id="@+id/button13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/operator_pad"
+                        android:padding="24dp"
+                        android:text="@string/thirteen"
+                        android:textColor="#fbf077" />
+
+                </com.andexert.library.RippleView>
+
+            </LinearLayout>
+
+            <!-- Fourth row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+                    <Button
+                        android:id="@+id/button10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/numeric_pad"
+                        android:padding="24dp"
+                        android:text="@string/ten"
+                        android:textColor="#fbf077" />
+                </com.andexert.library.RippleView>
+
+                <com.andexert.library.RippleView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="3"
+                    app:rv_color="@color/pad_button_text_color"
+                    app:rv_framerate="40"
+                    app:rv_rippleDuration="400"
+                    app:rv_type="simpleRipple"
+                    ripple:rv_centered="false">
+
+                    <Button
+                        android:id="@+id/button14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/operator_pad"
+                        android:padding="24dp"
+                        android:text="@string/fourteen"
+                        android:textColor="#fbf077" />
+
+                </com.andexert.library.RippleView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ripple="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/display_score_image"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_large"
+        android:src="@drawable/bg"
+        app:border_color="@color/calculator_accent_color"
+        app:border_width="3dp" />
+
+    <TextView
+        android:id="@+id/high_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/new_high_score"
+        android:textColor="@color/primaryColor"
+        android:textSize="30sp"
+        android:visibility="gone" />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_large"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/score_display_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="8dp"
+            android:text="@string/score_display_text"
+            android:textColor="@color/background_floating_material_dark"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/score_display"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/score_display"
+            android:textColor="@color/primaryColor"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <com.andexert.library.RippleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rv_color="@color/pad_button_text_color"
+        app:rv_framerate="40"
+        app:rv_rippleDuration="400"
+        app:rv_type="simpleRipple"
+        ripple:rv_centered="false">
+
+        <Button
+            android:id="@+id/play_again"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_small"
+            android:background="@drawable/mybutton"
+            android:text="@string/play_again"
+            android:textColor="@color/calculator_accent_color" />
+
+    </com.andexert.library.RippleView>
+
+    <com.andexert.library.RippleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rv_color="@color/pad_button_text_color"
+        app:rv_framerate="40"
+        app:rv_rippleDuration="400"
+        app:rv_type="simpleRipple"
+        ripple:rv_centered="false">
+
+        <Button
+            android:id="@+id/view_leaderboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_small"
+            android:background="@drawable/mybutton"
+            android:text="@string/view_leaderboard"
+            android:textColor="@color/calculator_accent_color" />
+    </com.andexert.library.RippleView>
+
+    <com.andexert.library.RippleView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:rv_color="@color/pad_button_text_color"
+        app:rv_framerate="40"
+        app:rv_rippleDuration="400"
+        app:rv_type="simpleRipple"
+        ripple:rv_centered="false">
+
+        <Button
+            android:id="@+id/share_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/margin_small"
+            android:background="@drawable/mybutton"
+            android:text="@string/share_button"
+            android:textColor="@color/calculator_accent_color" />
+
+    </com.andexert.library.RippleView>
+
+</LinearLayout>
