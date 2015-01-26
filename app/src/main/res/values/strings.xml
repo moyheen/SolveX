@@ -69,7 +69,7 @@
     <string name="app_id">174559663090</string>
     <string name="LEADERBOARD_ID">CgkI8qfEpIoFEAIQAQ</string>
 
-    <!-- Release API Key -->
-    <string name="api_key">45:91:C1:9B:78:C3:44:06:30:B3:EA:80:5B:E3:55:B8:31:2B:F7:17</string>
+    <!-- Bugsense API Key -->
+    <string name="bugsense_api_key">5ce54dfc</string>
 
 </resources>

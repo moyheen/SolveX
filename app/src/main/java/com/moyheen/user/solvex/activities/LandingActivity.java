@@ -40,7 +40,7 @@ public class LandingActivity extends Activity implements View.OnClickListener, G
         super.onCreate(savedInstanceState);
 
         // Adding bugsense to track errors
-        Mint.initAndStartSession(LandingActivity.this, getString(R.string.app_id));
+        Mint.initAndStartSession(LandingActivity.this, getString(R.string.bugsense_api_key));
 
         setContentView(R.layout.activity_landing);
 
