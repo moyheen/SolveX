@@ -17,6 +17,7 @@ import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
 import com.moyheen.user.solvex.R;
 import com.moyheen.user.solvex.logic.UserDetails;
+import com.splunk.mint.Mint;
 
 
 public class LandingActivity extends Activity implements View.OnClickListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
@@ -37,6 +38,10 @@ public class LandingActivity extends Activity implements View.OnClickListener, G
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // Adding bugsense to track errors
+        Mint.initAndStartSession(LandingActivity.this, getString(R.string.app_id));
+
         setContentView(R.layout.activity_landing);
 
         //Button tour_button = (Button) findViewById(R.id.tour_button);
