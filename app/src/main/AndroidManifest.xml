@@ -19,7 +19,8 @@
 
         <activity
             android:name="com.moyheen.user.solvex.activities.LandingActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -29,7 +30,8 @@
         <activity
             android:name="com.moyheen.user.solvex.activities.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/ToolBarColos"></activity>
+            android:theme="@style/ToolBarColos"
+            android:screenOrientation="portrait"></activity>
         <provider
             android:authorities="com.moyheen.user.solvex"
             android:name=".data.DetailsProvider" />
