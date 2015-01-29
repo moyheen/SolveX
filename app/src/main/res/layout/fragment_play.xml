@@ -54,16 +54,13 @@
 
         </ScrollView>
 
-
-
-
     <LinearLayout
         android:id="@+id/play_game_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone"
-        android:weightSum="4.5">
+        android:weightSum="4.5"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"

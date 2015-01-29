@@ -38,6 +38,8 @@
     <!-- Background color for the operator pad. -->
     <color name="pad_operator_background_color">#636363</color>
 
+    <color name="pad_operator_background_color_pressed">#4F4F4F</color>
+
     <!-- Background color for the advanced pad. -->
     <color name="pad_advanced_background_color">#1DE9B6</color>
 
@@ -54,6 +56,8 @@
     <color name="pad_button_advanced_ripple_color">#1A000000</color>
 
     <color name="primaryColor">#DD4814</color>
+
+    <color name="primaryColorPressed">#B13A10</color>
 
     <color name="primaryColorDark">#0D47A1</color>
 

@@ -1,11 +1,14 @@
 package com.moyheen.user.solvex.fragments;
 
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
@@ -21,8 +24,11 @@ import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
 import com.moyheen.user.solvex.R;
+import com.moyheen.user.solvex.activities.MainActivity;
 import com.moyheen.user.solvex.logic.FetchDetailsTask;
 import com.moyheen.user.solvex.logic.Utility;
+
+import java.lang.ref.WeakReference;
 
 import static android.view.View.GONE;
 import static android.view.View.OnClickListener;
@@ -56,6 +62,8 @@ public class PlayFragment extends Fragment implements OnClickListener, GoogleApi
 
     private SharedPreferences sharedPreferences;
 
+    private MediaPlayer mp;
+
     Button[] buttons = new Button[14];
     int length = buttons.length;
     String buttonID;
@@ -72,11 +80,15 @@ public class PlayFragment extends Fragment implements OnClickListener, GoogleApi
     LinearLayout play_game_linear_layout;
     final Utility utility = new Utility();
 
+    private static WeakReference<PlayFragment> mWeakReference = null;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_play,
                 container, false);
+
+        mWeakReference = new WeakReference<PlayFragment>(this);
 
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
                 .addConnectionCallbacks(this)
@@ -213,6 +225,11 @@ public class PlayFragment extends Fragment implements OnClickListener, GoogleApi
 
             // If there has been a first click
             case 1:
+                // Give sound feedback on click of the button
+                stopPlaying();
+                mp = MediaPlayer.create(getActivity(), R.raw.click);
+                mp.start();
+
                 // Get the id of the clicked button
                 // The numbered buttons are labelled 1 - 10
                 button_index = getIdOfClickedButton(0, 9, v);
@@ -230,6 +247,11 @@ public class PlayFragment extends Fragment implements OnClickListener, GoogleApi
 
             // If there has been a second click
             case 2:
+                // Give sound feedback on click of the button
+                stopPlaying();
+                mp = MediaPlayer.create(getActivity(), R.raw.click);
+                mp.start();
+
                 // Get the id of the clicked button
                 // The clicked buttons are labelled 11 - 14
                 button_index = getIdOfClickedButton(10, 13, v);
@@ -246,23 +268,48 @@ public class PlayFragment extends Fragment implements OnClickListener, GoogleApi
 
             // If there has been a third click
             case 3:
+                // Give sound feedback on click of the button
+                stopPlaying();
+                mp = MediaPlayer.create(getActivity(), R.raw.click);
+                mp.start();
+
                 // Get the id of that button
                 button_index = getIdOfClickedButton(0, 9, v);
                 utility.setSecondNum(button_index);
 
-                // Calculate score
-                utility.calculateScore();
-
                 // Disable the numbered buttons
                 disableButtons(0, 9);
 
-                // Initialize count
-                count = 0;
+                // Calculate score
+                utility.calculateScore();
+
+                // If the answer is right or wrong, give sound feedback
+                if (utility.getRightAnswer() != 0) {
+                    stopPlaying();
+                    mp = MediaPlayer.create(getActivity(), R.raw.correct);
+                    mp.start();
+                } else {
+                    stopPlaying();
+                    mp = MediaPlayer.create(getActivity(), R.raw.wrong);
+                    mp.start();
+                }
 
                 score.setText(String.valueOf(utility.getScore()));
                 X.setText(String.valueOf(utility.generateRandom(1, 20)));
                 enableButtons(0, 9);
+
+                // Initialize count
+                count = 0;
                 break;
+        }
+    }
+
+    // Stop the MediaPlayer
+    private void stopPlaying() {
+        if (mp != null) {
+            mp.stop();
+            mp.release();
+            mp = null;
         }
     }
 
@@ -285,6 +332,7 @@ public class PlayFragment extends Fragment implements OnClickListener, GoogleApi
 
         for (int index = start; index <= end; index++) {
             buttons[index].setClickable(false);
+            //buttons[index].setBackgroundColor(getResources().getColor(R.color.pad_operator_background_color));
         }
     }
 
@@ -293,6 +341,7 @@ public class PlayFragment extends Fragment implements OnClickListener, GoogleApi
 
         for (int index = start; index <= end; index++) {
             buttons[index].setClickable(true);
+            //buttons[index].setBackgroundColor(getResources().getColor(R.color.pad_operator_background_color));
         }
     }
 
@@ -324,7 +373,12 @@ public class PlayFragment extends Fragment implements OnClickListener, GoogleApi
                 }
 
                 if (mGoogleApiClient != null) {
-                    Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_ID), utility.getScore());
+                    mGoogleApiClient.connect();
+
+                    if (mGoogleApiClient.isConnected()) {
+                        Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_ID), utility.getScore());
+                    }
+
                 }
 
                 sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -337,15 +391,18 @@ public class PlayFragment extends Fragment implements OnClickListener, GoogleApi
                 FetchDetailsTask mFetchDetailsTask = new FetchDetailsTask(getActivity());
                 mFetchDetailsTask.addDetails(name, email, photo, score);
 
-                Fragment fragment = new DisplayScoreFragment();
-                Bundle bundle = new Bundle();
-                bundle.putInt(getString(R.string.score), utility.getScore());
+                if(mWeakReference.get() != null) {
+                    Fragment fragment = new DisplayScoreFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt(getString(R.string.score), utility.getScore());
 
-                fragment.setArguments(bundle);
+                    fragment.setArguments(bundle);
 
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.content_frame, fragment);
-                transaction.commit();
+                    android.support.v4.app.FragmentManager fm = mWeakReference.get().getFragmentManager();
+                    FragmentTransaction transaction = fm.beginTransaction();
+                    transaction.replace(R.id.content_frame, fragment);
+                    transaction.commitAllowingStateLoss();
+                }
             }
         }.start();
     }

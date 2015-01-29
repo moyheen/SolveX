@@ -49,13 +49,15 @@
         <!--<item name="android:layout_height">match_parent</item>-->
     <!--</style>-->
 
-    <style name="ToolBarColos" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="ToolBarColors" parent="Theme.AppCompat.Light.NoActionBar">
     <!-- Color of title text -->
         <item name="android:textColorPrimary">@color/calculator_accent_color</item>
 
-        <item name="android:textAppearanceInverse">@color/pad_numeric_background_color</item>
-
         <item name="android:textColorSecondary">@color/calculator_accent_color</item>
+
+        <item name="android:actionMenuTextColor">@color/pad_operator_background_color_pressed</item>
+        <item name="actionMenuTextColor">@color/pad_operator_background_color_pressed</item>
+
 
     </style>
 

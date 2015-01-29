@@ -30,7 +30,7 @@
         <activity
             android:name="com.moyheen.user.solvex.activities.MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/ToolBarColos"
+            android:theme="@style/ToolBarColors"
             android:screenOrientation="portrait"></activity>
         <provider
             android:authorities="com.moyheen.user.solvex"
